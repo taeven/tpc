@@ -39,6 +39,10 @@ const config = {
   mongo: {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
+  },
+  redis:  {
+    host: envVars.REDIS_HOST,
+    port: envVars.REDIS_PORT
   }
 };
 

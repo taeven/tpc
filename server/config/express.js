@@ -12,7 +12,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const routes = require('../routes/index.route');
 const config = require('./config');
-const passport = require('./passport')
+const expressValidator = require('express-validator');
 
 const app = express();
 
@@ -45,6 +45,8 @@ res.sendFile(path.join(__dirname, '../../dist/index.html'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(expressValidator());
+
 app.use(cookieParser());
 app.use(compress());
 app.use(methodOverride());
@@ -54,8 +56,6 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
-
-app.use(passport.initialize());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
