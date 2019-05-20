@@ -1,0 +1,6 @@
+Requirements...
+1. redis server should be running
+    redis-server
+    #to check 
+    redis-cli
+        ping

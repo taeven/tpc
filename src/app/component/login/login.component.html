@@ -1,0 +1,48 @@
+<div class="parent">
+  <div class="form-group input-container">
+    <div id="logo-container">
+      <img
+        id="logo"
+        src="../../../assets/iitplg.png"
+        alt="logo"
+        class="center"
+      />
+    </div>
+
+    <div class="input title">TPC IIT PATNA</div>
+
+    <div class="input-group input">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        required="required"
+        [(ngModel)]="cred.username"
+        placeholder="Username"
+      />
+    </div>
+
+    <div class="input-group input">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-key"></i></span>
+      </div>
+      <input
+        type="password"
+        class="form-control"
+        required="required"
+        [(ngModel)]="cred.password"
+        placeholder="Password"
+      />
+    </div>
+
+    <input
+      id="login-button"
+      type="button"
+      class="form-control input"
+      value="Login"
+      (click)="login()"
+    />
+  </div>
+</div>
