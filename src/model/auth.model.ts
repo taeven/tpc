@@ -4,3 +4,8 @@ export class CheckLoginResponse {
   public username: string;
   public token: string;
 }
+
+export class LogoutResponse {
+  public status: number;
+  public message: string;
+}

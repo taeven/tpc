@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { catchError, tap } from "rxjs/operators";
 import { Observable } from "rxjs";
-import { CheckLoginResponse } from "../model";
+import { CheckLoginResponse, LogoutResponse } from "../model";
 import { ApiUrl } from "../constant";
 
 const postOption = {
@@ -14,8 +13,12 @@ const postOption = {
 
 @Injectable()
 export class AuthService {
+  //---------------------------------------------------
   private check_url = ApiUrl.CHECK_LOGIN;
   private login_url = ApiUrl.LOGIN;
+  private logout_url = ApiUrl.LOGOUT;
+  //---------------------------------------------------
+
   constructor(private httpClient: HttpClient) {}
 
   public checkLogin(): Observable<CheckLoginResponse> {
@@ -30,13 +33,7 @@ export class AuthService {
     );
   }
 
-  
-
-  //   public registerBatteryPack(postparm: RegisterBatteryPost): Observable<RegisterBatteryResponse> {
-  //     return this.httpClient.post<RegisterBatteryResponse>(this.url, postparm, postOption);
-  //   }
-
-  //   public fetchUnassociatedBmsId(): Observable<FetchBmsResponse> {
-  //     return this.httpClient.get<FetchBmsResponse>(this.bmsurl);
-  //   }
+  public logout(): Observable<LogoutResponse> {
+    return this.httpClient.get<LogoutResponse>(this.logout_url);
+  }
 }

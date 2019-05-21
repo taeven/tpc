@@ -111,15 +111,25 @@ router.get("/me", CheckIfLogin, (req, res) => {
 });
 
 router.get("/logout", function(req, res) {
+  response = {};
   if (req.cookies.token == null) {
-    return res.status(200).send("already logged out");
+    response.status = 200;
+    response.message = "already logged out";
+    res = formatResponse(res, response);
+    return res.status(200).send(res.response);
   } else {
     if (DeleteJwt(req.cookies.token) == null) {
+      response.status = 200;
+      response.message = "logged out";
+      res = formatResponse(res, response);
       res.clearCookie("token");
-      return res.status(200).send("logged out");
+      return res.status(200).send(res.response);
     } else {
       res.clearCookie("token");
-      return res.status(200).send("some error occurred");
+      response.status = 200;
+      response.message = "some error occurred";
+      res = formatResponse(res, response);
+      return res.status(200).send(res.response);
     }
   }
 });

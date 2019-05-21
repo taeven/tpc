@@ -17,7 +17,7 @@
     </div>
 
     <ul class="list-unstyled components">
-      <p>Welcome {{username}}</p>
+      <p>Welcome {{ username }}</p>
 
       <li class="active">
         <a
@@ -29,7 +29,7 @@
         >
         <ul class="collapse list-unstyled" id="accountSubMenu">
           <li><a href="#">change Password</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="#" (click)="logout()">Logout</a></li>
         </ul>
       </li>
 
